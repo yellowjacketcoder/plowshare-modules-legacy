@@ -144,6 +144,9 @@ zippyshare_download() {
     JS=$(sed -n '/id="dlbutton"/,${
           /^<script type="text\/javascript">/,/^<\/script>/{/^[[:space:]]*</!p}
           }' <<< "$PAGE")
+          
+ VARD_REP_SUBSTR="document.getElementById('omg').getAttribute('class')"
+ JS="${JS/$VARD_REP_SUBSTR/2}"
 
     PART_URL=$(echo "var elts = new Array();
         var document = {
